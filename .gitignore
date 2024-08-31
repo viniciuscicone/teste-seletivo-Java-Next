@@ -4,6 +4,15 @@
 # Log file
 *.log
 
+# Ignorar a pasta .idea
+.idea/
+# Incluir arquivos específicos
+!.idea/codeStyles/
+!.idea/inspectionProfiles/
+!.idea/misc.xml
+!.idea/modules.xml
+!.idea/vcs.xml
+
 # BlueJ files
 *.ctxt
 
