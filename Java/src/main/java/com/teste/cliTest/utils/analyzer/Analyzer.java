@@ -13,7 +13,7 @@ public class Analyzer {
         this.hierarchy = loader.loadHierarchy("dicts/hierarchy.json");
     }
 
-    public void analyze(String phrase, int depth, boolean verbose) {
+    public void getAnalyze(String phrase, int depth, boolean verbose) {
 
         long startTime = System.currentTimeMillis();
         long endTime = System.currentTimeMillis();
