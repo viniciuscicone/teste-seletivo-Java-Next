@@ -4,6 +4,8 @@
 # Log file
 *.log
 
+target/
+
 # Ignorar a pasta .idea
 .idea/
 # Incluir arquivos específicos
