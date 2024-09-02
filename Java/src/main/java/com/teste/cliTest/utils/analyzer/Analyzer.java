@@ -6,14 +6,14 @@ import java.util.Map;
 
 public class Analyzer {
 
-    private final Map<String, Object> hierarchy;
+    static Map<String, Object> hierarchy;
 
     public Analyzer() throws IOException {
         HierarchyLoader loader = new HierarchyLoader();
-        this.hierarchy = loader.loadHierarchy("src/main/resources/dicts/hierarchy.json");
+        hierarchy = loader.loadHierarchy("src/main/resources/dicts/hierarchy.json");
     }
 
-    private static String findAnimalType(Map<String, Object> hierarchy, String animalName) {
+    static String findAnimalType(Map<String, Object> hierarchy, String animalName) {
         for (Map.Entry<String, Object> entry : hierarchy.entrySet()) {
             String key = entry.getKey();
             Object value = entry.getValue();
@@ -44,6 +44,5 @@ public class Analyzer {
                 System.out.println("1 Valor encontrado " + animalName + ": " + animalType);
             }
         }
-        System.out.println(" ");
     }
 }
