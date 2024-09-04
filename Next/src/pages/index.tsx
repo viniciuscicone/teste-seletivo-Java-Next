@@ -1,27 +1,38 @@
 import { useState } from "react";
-import { downloadJsonFile } from '../utils/jsonUtils';
+import HierarchyInput from "../components/HierarchyInput";
+import HierarchyViewComponent from "../components/HierarchyViewComponent";
+import { downloadJsonFile } from "../utils/jsonUtils";
+
+interface AnotherNode {
+  name: string;
+  children?: AnotherNode[];
+}
 
 interface HomeProps {
-    initialHierarchy: Node[];
-  }
-  
-  const Home: React.FC<HomeProps> = ({ initialHierarchy }) => {
-    const [hierarchy, setHierarchy] = useState(initialHierarchy);
-  
-    const handleAddNo = (newHierarchy: Node) => {
-      setHierarchy([...hierarchy, newHierarchy]);
-    };
-  
-    const handleSave = () => {
-      downloadJsonFile(hierarchy);
-    };
-  
-    return (
-      <div>
-        <h1>Hierarquia de Palavras</h1>
-    
-        <button onClick={handleSave}>Salvar Hierarquia</button>
-      </div>
-    );
+  initialHierarchy: AnotherNode[];
+}
+
+const Home: React.FC<HomeProps> = ({ initialHierarchy }) => { 
+  const [hierarchy, setHierarchy] = useState<AnotherNode[]>(
+    Array.isArray(initialHierarchy) ? initialHierarchy : []
+  );
+
+  const handleAddNode = (anotherNode: AnotherNode) => {
+    setHierarchy([...hierarchy, anotherNode]);
   };
-  export default Home;
+
+  const handleSave = () => {
+    downloadJsonFile(hierarchy);
+  };
+
+  return (
+    <div>
+      <h1>Hierarquia de Palavras</h1>
+      <HierarchyInput onAdd={handleAddNode} />
+      <HierarchyViewComponent hierarchy={hierarchy} />
+      <button onClick={handleSave}>Salvar Hierarquia</button>
+    </div>
+  );
+};
+
+export default Home;
