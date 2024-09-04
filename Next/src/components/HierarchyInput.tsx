@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import styles from '../styles/Home.module.css';
 
 interface AnotherNode {
   name: string;
@@ -34,9 +35,10 @@ const HierarchyInput: React.FunctionComponent<Props> = ({ onAdd }) => {
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Nome do nível"
+        className={styles.input}
       />
-      <button onClick={handleAddChild}>Adicionar Subnível</button>
-      <button onClick={handleSubmit}>Salvar Nível</button>
+      <button onClick={handleAddChild} className={styles.button}>Adicionar Subnível</button>
+      <button onClick={handleSubmit} className={styles.button}>Salvar Nível</button>
     </div>
   );
 };

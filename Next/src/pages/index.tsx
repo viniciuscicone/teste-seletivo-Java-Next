@@ -2,6 +2,7 @@ import { useState } from "react";
 import HierarchyInput from "../components/HierarchyInput";
 import HierarchyViewComponent from "../components/HierarchyViewComponent";
 import { downloadJsonFile } from "../utils/jsonUtils";
+import styles from '../styles/Home.module.css';
 
 interface AnotherNode {
   name: string;
@@ -26,11 +27,11 @@ const Home: React.FC<HomeProps> = ({ initialHierarchy }) => {
   };
 
   return (
-    <div>
-      <h1>Hierarquia de Palavras</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Hierarquia de Palavras</h1>
       <HierarchyInput onAdd={handleAddNode} />
       <HierarchyViewComponent hierarchy={hierarchy} />
-      <button onClick={handleSave}>Salvar Hierarquia</button>
+      <button onClick={handleSave} className={styles.button}>Salvar Hierarquia</button>
     </div>
   );
 };
