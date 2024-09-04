@@ -16,7 +16,7 @@ const HierarchyViewComponent: React.FunctionComponent<Props> = ({
     <li key={anotherNode.name}>
       {anotherNode.name}
       {anotherNode.children && (
-        <ul>{anotherNode.children.map((child) => render(child))}</ul>
+        <ul className={styles.subnivel} >{anotherNode.children.map((child) => render(child))}</ul>
       )}
     </li>
   );

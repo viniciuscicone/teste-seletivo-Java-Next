@@ -2,6 +2,7 @@
 import { AppProps } from 'next/app';
 import { Roboto } from 'next/font/google';
 import '../styles/global.css';
+import Header from '@/components/Header';
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -12,6 +13,7 @@ const roboto = Roboto({
 function App({ Component, pageProps }: AppProps) {
   return (
     <div className={roboto.className}>
+      <Header />
       <Component {...pageProps} />
     </div>
   );
