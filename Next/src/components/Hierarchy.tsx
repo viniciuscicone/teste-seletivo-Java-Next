@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "../styles/Home.module.css";
 import HierarchyViewComponent from "./HierarchyViewComponent";
-import { downloadJsonFile } from "@/utils/jsonUtils";
+import { downloadJsonFile } from "../utils/jsonUtils";
 
 interface AnotherNode {
   name: string;
