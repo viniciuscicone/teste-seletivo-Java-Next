@@ -1,19 +1,25 @@
-interface Node {
+interface AnotherNode {
   name: string;
-  children?: Node[];
+  children?: (AnotherNode | string)[];
 }
 
 /**
  * Converte a hierarquia de palavras em um objeto JSON.
- * @param hierarchy - A hierarquia de palavras.
- * @returns O objeto JSON representando a hierarquia.
+ * representando a hierarquia.
  */
-export const convertHierarchyToJson = (hierarchy: Node[]): object => {
-  const buildJson = (nodes: Node[]): object => {
+export const convertHierarchyToJson = (hierarchy: AnotherNode[]): object => {
+  const buildJson = (nodes: (AnotherNode | string)[]): object => {
     const result: any = {};
     nodes.forEach((node) => {
-      if (node.children && node.children.length > 0) {
-        result[node.name] = buildJson(node.children);
+      if (typeof node === 'string') {
+        result[node] = [];
+      } else if (node.children && node.children.length > 0) {
+        const childrenAreStrings = node.children.every(child => typeof child === 'string');
+        if (childrenAreStrings) {
+          result[node.name] = node.children;
+        } else {
+          result[node.name] = buildJson(node.children);
+        }
       } else {
         result[node.name] = [];
       }
@@ -24,11 +30,11 @@ export const convertHierarchyToJson = (hierarchy: Node[]): object => {
   return buildJson(hierarchy);
 };
 
+
 /**
  * Gera um arquivo JSON a partir da hierarquia de palavras e permite o download.
- * @param hierarchy - A hierarquia de palavras.
  */
-export const downloadJsonFile = (hierarchy: Node[]): void => {
+export const downloadJsonFile = (hierarchy: AnotherNode[]): void => {
   const json = JSON.stringify(convertHierarchyToJson(hierarchy), null, 2);
   const blob = new Blob([json], { type: "application/json" });
   const url = URL.createObjectURL(blob);
