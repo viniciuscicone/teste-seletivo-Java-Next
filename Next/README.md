@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hierarquia de Palavras
 
-## Getting Started
+Este projeto é uma aplicação web desenvolvida com Next.js e TypeScript que permite ao usuário criar uma hierarquia de palavras. A aplicação permite adicionar múltiplos níveis, exibir a hierarquia de forma visual, salvar a hierarquia em um arquivo JSON e fazer o download do arquivo gerado.
 
-First, run the development server:
+## Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Adicionar múltiplos níveis à hierarquia de palavras.
+- Exibir a hierarquia de palavras de forma visual.
+- Botão "Salvar" que gera um arquivo JSON contendo a hierarquia criada.
+- Permitir o download do arquivo JSON gerado.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologias Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js**: Um framework React para desenvolvimento de aplicações web que permite renderização do lado do servidor e geração de sites estáticos.
+- **TypeScript**: Um superconjunto de JavaScript que adiciona tipagem estática ao código, ajudando a evitar erros e melhorar a manutenção do código.
+- **React**: Uma biblioteca JavaScript para construção de interfaces de usuário, permitindo a criação de componentes reutilizáveis.
+- **JestJS**: Um framework de testes em JavaScript que facilita a criação e execução de testes automatizados, garantindo a correção do código.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Estrutura do Projeto
 
-## Learn More
+A hierarquia de palavras é representada no estado do React e convertida para JSON no momento de salvar.
 
-To learn more about Next.js, take a look at the following resources:
+## Como Executar o Projeto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone o repositório:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```bash
+   git clone https://github.com/viniciuscicone/teste-seletivo-Java-Next.git
+   ```
 
-## Deploy on Vercel
+## Para rodar o projeto Next.js no navegador, a pessoa precisará:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Instalar **Node.js** e **NPM**.
+  <br><br>
+* Navegue até o diretório:
+  <br><br>
+* Clonar o repositório do projeto.
+  <br><br>
+* Instale as dependências: **npm install**
+  <br><br>
+* Executar os scripts disponíveis para desenvolvimento, produçao, desenvolvimento, linting e testes.
+  <br><br>
+* Execute o projeto em modo de desenvolvimento: **npm run dev**
+  <br><br>
+* Construa o projeto para produção: **npm run build**
+  <br><br>
+* Como Executar os Testes
+  Execute os testes: **npm run test**
+  <br><br>
+* Execute os testes em modo contínuo (CI): **npm run test:ci**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  ## Estrutura do JSON
+
+
+  ```json**
+    {
+    "Animais": {
+      "Mamíferos": {
+        "Carnívoros": {
+          "Felinos": ["Leões", "Tigres", "Jaguars", "Leopardos"]
+        },
+        "Herbívoros": {
+          "Equídeos": ["Cavalos", "Zebras", "Asnos"],
+          "Bovídeos": ["Bois", "Búfalos", "Antílopes", "Cabras"],
+          "Primatas": ["Gorilas", "Chimpanzés", "Orangotangos"]
+        }
+      },
+      "Aves": {
+        "Rapinas": ["Águias", "Falcões", "Corujas", "Milhafres"],
+        "Pássaros": ["Canários", "Papagaios", "Pardais", "Rouxinóis"]
+      }
+    }
+  }
+  ```
