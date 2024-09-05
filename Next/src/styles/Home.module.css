@@ -25,6 +25,15 @@
     margin-top: 20px;
   }
   
+  .disabled {
+    pointer-events: none;
+    opacity: 0.5; /* Ajuste a opacidade conforme necessário */
+  }
+  
+  .button:not(.disabled):hover {
+    color: white; /* Cor do texto ao passar o mouse */
+  }
+  
   .input {
     padding: 10px;
     margin: 5px 0;

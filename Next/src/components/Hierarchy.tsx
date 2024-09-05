@@ -9,22 +9,26 @@ interface AnotherNode {
 }
 
 const Hierarchy: React.FunctionComponent = () => {
-
-  
   const [name, setName] = useState("");
   const [hierarchy, setHierarchy] = useState<AnotherNode[]>([]);
   const [parentPath, setParentPath] = useState<string[]>([]);
 
   const handleAddNode = (nodeNames: string[], parentName: string | null) => {
-    const addNode = (nodes: (AnotherNode | string)[], parentName: string | null): (AnotherNode | string)[] => {
+    const addNode = (
+      nodes: (AnotherNode | string)[],
+      parentName: string | null
+    ): (AnotherNode | string)[] => {
       if (!parentName) {
-        return [...nodes, ...nodeNames.map(name => ({ name, children: [] }))];
+        return [...nodes, ...nodeNames.map((name) => ({ name, children: [] }))];
       }
       return nodes.map((node) => {
         if (typeof node === "object" && node.name === parentName) {
           return {
             ...node,
-            children: [...(node.children || []), ...nodeNames.map(name => ({ name, children: [] }))],
+            children: [
+              ...(node.children || []),
+              ...nodeNames.map((name) => ({ name, children: [] })),
+            ],
           };
         }
         if (typeof node === "object" && node.children) {
@@ -40,7 +44,10 @@ const Hierarchy: React.FunctionComponent = () => {
     setHierarchy(addNode(hierarchy, parentName) as AnotherNode[]);
   };
 
-  const findNode = (nodes: (AnotherNode | string)[], name: string): AnotherNode | null => {
+  const findNode = (
+    nodes: (AnotherNode | string)[],
+    name: string
+  ): AnotherNode | null => {
     for (const node of nodes) {
       if (typeof node === "object" && node.name === name) {
         return node;
@@ -65,9 +72,13 @@ const Hierarchy: React.FunctionComponent = () => {
       return;
     }
 
-    const stringsToAdd = prompt("Strings a serem adicionadas (separadas por vírgula):");
+    const stringsToAdd = prompt(
+      "Strings a serem adicionadas (separadas por vírgula):"
+    );
     if (stringsToAdd) {
-      const stringsArray = stringsToAdd.split(",").map(str => str.trim().toLowerCase());
+      const stringsArray = stringsToAdd
+        .split(",")
+        .map((str) => str.trim().toLowerCase());
       parentNode.children = [...(parentNode.children || []), ...stringsArray];
       setHierarchy([...hierarchy]);
     }
@@ -85,7 +96,9 @@ const Hierarchy: React.FunctionComponent = () => {
 
     const childNames = prompt("Nomes dos subníveis (separados por vírgula):");
     if (childNames) {
-      const namesArray = childNames.split(",").map(name => name.trim().toLowerCase());
+      const namesArray = childNames
+        .split(",")
+        .map((name) => name.trim().toLowerCase());
       handleAddNode(namesArray, parentName.toLowerCase());
     }
   };
@@ -102,22 +115,44 @@ const Hierarchy: React.FunctionComponent = () => {
 
   return (
     <div className={styles.container}>
-      <input  
+      <input
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Nome do nível"
         className={styles.input}
       />
-      <button className={styles.button} onClick={handleAddStringsToChildren}>Adicionar Strings em um subnível</button>
-      <button onClick={handleAddChild} className={styles.button}>
+      <button
+        className={`${styles.button} ${
+          hierarchy.length === 0 ? styles.disabled : ""
+        }`}
+        onClick={handleAddStringsToChildren}
+      >
+        Adicionar Strings em um subnível
+      </button>
+      <button
+        onClick={handleAddChild}
+        className={`${styles.button} ${
+          hierarchy.length === 0 ? styles.disabled : ""
+        }`}
+      >
         Adicionar Subnível
       </button>
-      <button onClick={handleSubmit} className={styles.button}>
+      <button
+        disabled={!name}
+        onClick={handleSubmit}
+        className={`${styles.button} ${!name ? styles.disabled : ""}`}
+      >
         Criar Nível Principal
       </button>
       <HierarchyViewComponent hierarchy={hierarchy} />
-      <button onClick={handleSave} className={styles.button}>
+      <button
+        disabled={hierarchy.length === 0}
+        onClick={handleSave}
+        className={`${styles.button} ${
+          hierarchy.length === 0 ? styles.disabled : ""
+        }`}
+      >
         Salvar Hierarquia
       </button>
     </div>
