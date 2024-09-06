@@ -22,3 +22,48 @@ Este projeto é uma aplicação CLI (Interface de Linha de Comando) que analisa 
    ```sh
    git clone https://github.com/viniciuscicone/teste-seletivo
    -Java-Next.git
+   ```
+
+## Importar o Projeto
+
+1. **Instale e abra o IntelliJ IDEA.**
+2. **Selecione `File > New > Project from Existing Sources...`.**
+3. **Navegue até o diretório do seu projeto.**
+
+## Configurar a Configuração de Execução
+
+1. **Vá até `Run > Edit Configurations...`.**
+2. **Clique no ícone `+` e selecione `Application`.**
+3. **Configure a nova configuração de execução:**
+   - **Name**: App
+   - **Main class**: com.teste.cliTest.App
+   - **Use classpath of module**: Selecione o módulo do seu projeto.
+   - **Program arguments**: 3 "Eu vi gorilas e papagaios" --verbose
+   - **Working directory**: O diretório raiz do seu projeto.
+
+## Executar no Arquivo Principal
+
+1. **Run in current file dentro da classe `App`.**
+
+## Estrutura do JSON
+
+```json**
+{
+    "Animais": {
+      "Mamíferos": {
+        "Carnívoros": {
+          "Felinos": ["Leões", "Tigres", "Jaguars", "Leopardos"]
+        },
+        "Herbívoros": {
+          "Equídeos": ["Cavalos", "Zebras", "Asnos"],
+          "Bovídeos": ["Bois", "Búfalos", "Antílopes", "Cabras"],
+          "Primatas": ["Gorilas", "Chimpanzés", "Orangotangos"]
+        }
+      },
+      "Aves": {
+        "Rapinas": ["Águias", "Falcões", "Corujas", "Milhafres"],
+        "Pássaros": ["Canários", "Papagaios", "Pardais", "Rouxinóis"]
+      }
+    }
+  }
+```
