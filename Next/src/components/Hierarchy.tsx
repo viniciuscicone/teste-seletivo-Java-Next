@@ -13,6 +13,7 @@ const Hierarchy: React.FunctionComponent = () => {
   const [hierarchy, setHierarchy] = useState<AnotherNode[]>([]);
   const [parentPath, setParentPath] = useState<string[]>([]);
 
+  // Função para adicionar um novo nó à hierarquia
   const handleAddNode = (nodeNames: string[], parentName: string | null) => {
     const addNode = (
       nodes: (AnotherNode | string)[],
@@ -43,7 +44,7 @@ const Hierarchy: React.FunctionComponent = () => {
 
     setHierarchy(addNode(hierarchy, parentName) as AnotherNode[]);
   };
-
+    // Função para encontrar um nó específico na hierarquia
   const findNode = (
     nodes: (AnotherNode | string)[],
     name: string
@@ -61,7 +62,7 @@ const Hierarchy: React.FunctionComponent = () => {
     }
     return null;
   };
-
+  // Função para adicionar strings como filhos de um nó específico
   const handleAddStringsToChildren = () => {
     const parentName = prompt("Nome do nível onde adicionar strings:");
     if (!parentName) return;
@@ -82,8 +83,8 @@ const Hierarchy: React.FunctionComponent = () => {
       parentNode.children = [...(parentNode.children || []), ...stringsArray];
       setHierarchy([...hierarchy]);
     }
-  };
-
+  };  
+   // Função para adicionar subníveis a um nó específico
   const handleAddChild = () => {
     const parentName = prompt("Nome do nível onde adicionar subníveis:");
     if (!parentName) return;
@@ -102,7 +103,7 @@ const Hierarchy: React.FunctionComponent = () => {
       handleAddNode(namesArray, parentName.toLowerCase());
     }
   };
-
+   // Função para adicionar um novo nível à hierarquia
   const handleSubmit = () => {
     handleAddNode([name.toLowerCase()], null);
     setName("");

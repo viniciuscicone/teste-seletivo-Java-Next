@@ -10,7 +10,7 @@ interface Props {
 }
 
 const HierarchyViewComponent: React.FunctionComponent<Props> = ({ hierarchy }) => {
-
+  // Função recursiva para renderizar a hierarquia de nós
   const listofobjects = (anotherNode: AnotherNode | string) => {
     
     if (typeof anotherNode === "string") {
