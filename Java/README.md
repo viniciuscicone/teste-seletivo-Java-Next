@@ -45,7 +45,7 @@ Este projeto é uma aplicação CLI (Interface de Linha de Comando) que analisa 
 
 1. **Run in current file dentro da classe `App`.**
 
-## Estrutura do JSON
+## Estrutura do JSON disponivel
 
 ```json**
 {
