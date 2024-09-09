@@ -9,21 +9,26 @@ interface Props {
   hierarchy: AnotherNode[];
 }
 
-const HierarchyViewComponent: React.FunctionComponent<Props> = ({ hierarchy }) => {
+const HierarchyViewComponent: React.FunctionComponent<Props> = ({
+  hierarchy,
+}) => {
   // Função recursiva para renderizar a hierarquia de nós
   const listofobjects = (anotherNode: AnotherNode | string) => {
-    
     if (typeof anotherNode === "string") {
-      return <li key={anotherNode}>{anotherNode}</li>;
+      return <div className={styles.divCard}><li key={anotherNode}>{anotherNode}</li></div>;
     }
 
     return (
-      <li key={anotherNode.name}>
-        {anotherNode.name}
+      
+      <li className={styles.hierarchyCard} key={anotherNode.name}>
+        <div className={styles.divCard}>{anotherNode.name}</div>
+
         {anotherNode.children && (
-          <ul className={styles.subnivel}>
-            {anotherNode.children.map((child) => listofobjects(child))}
-          </ul>
+
+            <ul className={styles.subnivel}>
+              {anotherNode.children.map((child) => listofobjects(child))}
+            </ul>
+          
         )}
       </li>
     );
@@ -33,11 +38,7 @@ const HierarchyViewComponent: React.FunctionComponent<Props> = ({ hierarchy }) =
     return <div>Erro: A hierarquia não é um array</div>;
   }
 
-  return (
-    <ul className={styles.container}>
-      {hierarchy.map((parameter) => listofobjects(parameter))}
-    </ul>
-  );
+  return <div className={styles.bodyCards} >{hierarchy.map((parameter) => listofobjects(parameter))}</div>;
 };
 
 export default HierarchyViewComponent;

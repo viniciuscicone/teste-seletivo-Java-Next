@@ -7,10 +7,32 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
   }
   
-  .subnivel {
-    margin-left: 20px;
+  .bodyCards {
+    padding: 10px 5px 0;
+  }
+   .subnivel {
+    margin-left: 50px;
+    list-style: none;
+  }
+  .hierarchyCard {
+    list-style: none;
+  }
+  .divCard {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    height: 100%;
+    width: 140px;
+    background-color: #fff;
+    justify-content: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.326);
+    background: rgba(228, 228, 228, 0.2);
+    font-weight: bold;
+    border-radius: 5px;
   }
 
   .title {
