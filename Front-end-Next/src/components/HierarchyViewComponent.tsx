@@ -19,10 +19,9 @@ const HierarchyViewComponent: React.FunctionComponent<Props> = ({
     }
 
     return (
+      <div key={anotherNode.name} className={styles.listnone}>
+        <div className={styles.divCard}><li>{anotherNode.name}</li></div>
       
-      <li className={styles.hierarchyCard} key={anotherNode.name}>
-        <div className={styles.divCard}>{anotherNode.name}</div>
-
         {anotherNode.children && (
 
             <ul className={styles.subnivel}>
@@ -30,7 +29,7 @@ const HierarchyViewComponent: React.FunctionComponent<Props> = ({
             </ul>
           
         )}
-      </li>
+      </div>
     );
   };
 

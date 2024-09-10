@@ -15,11 +15,8 @@
   }
    .subnivel {
     margin-left: 50px;
-    list-style: none;
   }
-  .hierarchyCard {
-    list-style: none;
-  }
+
   .divCard {
     padding: 10px;
     display: flex;
