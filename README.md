@@ -6,11 +6,16 @@
 
 #### Fazer utilizando linguagem JAVA.
 
-    Você deve criar uma aplicação de linha de comando que carrega uma árvore hierárquica de palavras, onde cada nível da árvore representa uma profundidade específica. A aplicação deve analisar uma frase fornecida pelo usuário, identificar a profundidade associada a uma palavra mencionada na frase, e então exibir os itens mais próximos dessa profundidade.
+    Você deve criar uma aplicação de linha de comando que carrega uma árvore hierárquica de palavras, 
+    onde cada nível da árvore representa uma profundidade específica. A aplicação deve analisar uma frase 
+    fornecida pelo usuário, identificar a profundidade associada a uma palavra mencionada na frase, e então
+    exibir os itens mais próximos dessa profundidade.
 
 ## Descrição da hierarquia
 
-    Você deve criar uma estrutura hierárquica de palavras onde cada palavra ou grupo de palavras pode ter subcategorias, semelhante a uma árvore de classificação. A estrutura deve ser representada em um arquivo JSON na pasta `dicts/`.
+    Você deve criar uma estrutura hierárquica de palavras onde cada palavra ou grupo de palavras pode ter
+    subcategorias, semelhante a uma árvore de classificação. A estrutura deve ser representada em um arquivo JSON
+    na pasta `dicts/`.
 
 Exemplo de Estrutura
 
@@ -120,19 +125,19 @@ um, deve ter a análise de um texto de mais de 5000 caracteres.
 
 1. Permitir que o usuário adicione múltiplos níveis.
 2. Exibir a hierarquia de palavras de forma visual.
-3. Ter um botão "Salvar" que gera um arquivo JSON contendo a hierarquia criada.
-4. Permitir o download do arquivo JSON gerado
+4. Ter um botão "Salvar" que gera um arquivo JSON contendo a hierarquia criada.
+5. Permitir o download do arquivo JSON gerado
 
         A estrutura do arquivo JSON gerado deve seguir o formato esperado que a CLI irá ler,
         conforme descrito no teste original.
 
 O que foi avaliado ?
-● Git: Como você organizou seu repositório, commits, branchs e clareza do
+* Git: Como você organizou seu repositório, commits, branchs e clareza do
 README.md
-● Arquitetura: Como foi organizado os componentes do código. Eles são
+* Arquitetura: Como foi organizado os componentes do código. Eles são
 extensíveis?
-● UX/UI: A interface é intuitiva e fácil de usar?
-● Funcionalidades: Todas as funcionalidades descritas foram implementadas
+* UX/UI: A interface é intuitiva e fácil de usar?
+* Funcionalidades: Todas as funcionalidades descritas foram implementadas
 corretamente?
-● Código: O código é limpo, organizado e documentado?
+* Código: O código é limpo, organizado e documentado?
 
